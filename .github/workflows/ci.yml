@@ -35,18 +35,18 @@ jobs:
         run: pnpm install
       - name: build ✅
         run: pnpm build
-      - name: test ✅
-        run: pnpm test
-      - name: routes ✅
-        run: pnpm pls routes
-      - name: doctor ✅
-        run: pnpm pls doctor
       - name: generate migration ✅
         run: pnpm migrate foobar
       - name: run migration ✅
         run: pnpm migrate
       - name: seed ✅
         run: pnpm pls seed
+      - name: test ✅
+        run: pnpm test
+      - name: routes ✅
+        run: pnpm pls routes
+      - name: doctor ✅
+        run: pnpm pls doctor
       - name: 200 ok ✅
         run: |
           pnpm dev &
