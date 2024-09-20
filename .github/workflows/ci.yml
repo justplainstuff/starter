@@ -50,11 +50,14 @@ jobs:
       - name: 200 ok ✅
         run: |
           pnpm dev &
-          sleep 10  # Wait for the server to start
-          if curl -s http://localhost:3000 | grep -q "{\"status\":\"ok\"}"; then
-            echo "Server started successfully and contains 'Let's go'"
+          sleep 5  # wait for the server to start
+          response=$(curl -s http://localhost:3000/health)
+          if echo "$response" | grep -q '{"status":"ok"}'; then
+            echo "Server started and healthy"
+            echo "Response: $response"
           else
             echo "Server check failed"
+            echo "Unexpected response: $response"
             exit 1
           fi
           kill $!  # Stop the server
