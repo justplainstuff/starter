@@ -12,6 +12,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+    env:
+      NODE_ENV: development
+      PORT: 3000
+      DB_URL: data.db
+      SMTP_HOST: smtp.example.com
+      SMTP_USER: user@example.com
+      SMTP_PASS: password
     steps:
       - uses: actions/checkout@v4
         name: checkout code 📥
