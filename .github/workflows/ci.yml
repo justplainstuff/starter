@@ -44,7 +44,7 @@ jobs:
         run: |
           pnpm dev &
           sleep 10  # Wait for the server to start
-          if curl -s http://localhost:3000 | grep -q "Let's go"; then
+          if curl -s http://localhost:3000 | grep -q "{\"status\":\"ok\"}"; then
             echo "Server started successfully and contains 'Let's go'"
           else
             echo "Server check failed"
@@ -52,11 +52,6 @@ jobs:
           fi
           kill $!  # Stop the server
       # TODO write mailer, write command, run command, assert shell output
-      # TODO write scheduler, write command, run command, assert shell output, periodic counter 
+      # TODO write scheduler, write command, run command, assert shell output, periodic counter
       # TODO write job, write command, run command, assert shell output
       # TODO pnpm dev to start server, wait 5 seconds, curl localhost:3000/health, assert status 200
-      
-
-
-
-
