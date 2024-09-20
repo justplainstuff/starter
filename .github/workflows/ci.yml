@@ -46,7 +46,7 @@ jobs:
       - name: routes ✅
         run: pnpm pls routes
       - name: doctor ✅
-        run: pnpm pls doctor
+        run: pnpm pls info
       - name: 200 ok ✅
         run: |
           pnpm dev &
