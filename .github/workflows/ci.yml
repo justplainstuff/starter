@@ -40,6 +40,17 @@ jobs:
         run: pnpm migrate
       - name: seed ✅
         run: pnpm pls seed
+      - name: 200 ok ✅
+        run: |
+          pnpm dev &
+          sleep 10  # Wait for the server to start
+          if curl -s http://localhost:3000 | grep -q "Let's go"; then
+            echo "Server started successfully and contains 'Let's go'"
+          else
+            echo "Server check failed"
+            exit 1
+          fi
+          kill $!  # Stop the server
       # TODO write mailer, write command, run command, assert shell output
       # TODO write scheduler, write command, run command, assert shell output, periodic counter 
       # TODO write job, write command, run command, assert shell output
