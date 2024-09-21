@@ -19,6 +19,7 @@ jobs:
       SMTP_HOST: smtp.example.com
       SMTP_USER: user@example.com
       SMTP_PASS: password
+      LOG_LEVEL: debug
     steps:
       - uses: actions/checkout@v4
         name: checkout code 📥
