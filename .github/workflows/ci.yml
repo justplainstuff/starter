@@ -48,10 +48,15 @@ jobs:
       - name: doctor ✅
         run: pnpm pls info
       - name: 200 ok ✅
+        shell: bash
         run: |
           pnpm dev &
-          sleep 5  # wait for the server to start
-          response=$(curl -s http://localhost:3000/health)
+          sleep 5
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            response=$(curl.exe -s http://localhost:3000/health)
+          else
+            response=$(curl -s http://localhost:3000/health)
+          fi
           if echo "$response" | grep -q '{"status":"ok"}'; then
             echo "Server started and healthy"
             echo "Response: $response"
@@ -60,7 +65,11 @@ jobs:
             echo "Unexpected response: $response"
             exit 1
           fi
-          kill $!  # Stop the server
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            taskkill //F //PID $(tasklist //FI "IMAGENAME eq node.exe" //FO CSV //NH | findstr /r /c:".*\.exe" | cut -d',' -f2 | tr -d '"') 2>NUL
+          else
+            kill $!
+          fi
       # TODO write mailer, write command, run command, assert shell output
       # TODO write scheduler, write command, run command, assert shell output, periodic counter
       # TODO write job, write command, run command, assert shell output
