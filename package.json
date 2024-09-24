@@ -43,6 +43,6 @@
   "engineStrict": true,
   "engines": {
     "pnpm": ">=9.5.0",
-    "node": ">=20.10.0"
+    "node": ">=22.9.0"
   }
 }

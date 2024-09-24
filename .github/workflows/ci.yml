@@ -30,7 +30,7 @@ jobs:
       - name: setup node 🟢
         uses: actions/setup-node@v4
         with:
-          node-version: "20.10.0"
+          node-version: "22.9.0"
           cache: "pnpm"
       - name: install dependencies 🔧
         run: pnpm install
@@ -40,10 +40,10 @@ jobs:
         run: pnpm migrate foobar
       - name: run migration ✅
         run: pnpm migrate
-      - name: seed ✅
-        run: pnpm pls seed
       - name: test ✅
         run: pnpm test
+      - name: seed ✅
+        run: pnpm pls seed
       - name: routes ✅
         run: pnpm pls routes
       - name: doctor ✅
