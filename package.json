@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"bun run --hot app/index.tsx\" \"tailwindcss -i ./app/styles.css -o ./static/styles.css --watch \"",
-    "build": "PS_MIGRATE=1 bun run app/index.tsx && tsc --noEmit && tailwindcss -i ./app/styles.css -o ./static/styles.css --minify",
+    "dev": "concurrently \"bun run --hot app/app.tsx\" \"tailwindcss -i ./app/styles.css -o ./static/styles.css --watch \"",
+    "build": "PS_MIGRATE=1 bun run app/app.tsx && tsc --noEmit && tailwindcss -i ./app/styles.css -o ./static/styles.css --minify",
     "test": "bun test"
   },
   "dependencies": {
