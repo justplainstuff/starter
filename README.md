@@ -1,9 +1,5 @@
-# my-app
+# Plainstack Starter App
 
-This project was created using [create-plainweb](https://github.com/joseferben/plainweb).
+TODO
 
-## Getting Started
-
-`pnpm dev`
-
-Check the [documentation](https://www.plainweb.dev/docs/getting-started) on how to get started with plainweb.
+![screenshot](./static/screen.png)

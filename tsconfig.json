@@ -1,15 +1,36 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@tsconfig/node20/tsconfig.json",
-  "include": ["**/*.ts", "**/*.tsx", "assets/**/*.ts"],
-  "exclude": ["node_modules", ".out"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "jsx": "react-jsx",
-    "jsxImportSource": "@kitajs/html",
+    // enable latest features
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "plugins": [{ "name": "@kitajs/ts-html-plugin" }],
-    "types": ["@kitajs/html/htmx.d.ts", "@kitajs/html/alpine.d.ts"]
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "allowJs": false,
+    "paths": {
+      "app/*": ["./app/*"]
+    },
+
+    // bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+
+    // some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": true
   }
 }

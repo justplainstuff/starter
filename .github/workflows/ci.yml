@@ -11,67 +11,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
-    env:
-      NODE_ENV: development
-      PORT: 3000
-      DB_URL: data.db
-      SMTP_HOST: smtp.example.com
-      SMTP_USER: user@example.com
-      SMTP_PASS: password
-      LOG_LEVEL: debug
+        os: [ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
         name: checkout code 📥
-      - name: install pnpm 📦
-        uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          version: 9.5.0
-      - name: setup node 🟢
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22.9.0"
-          cache: "pnpm"
+          bun-version: 1.1.29
       - name: install dependencies 🔧
-        run: pnpm install
+        run: bun install
       - name: build ✅
-        run: pnpm build
-      - name: generate migration ✅
-        run: pnpm migrate foobar
-      - name: run migration ✅
-        run: pnpm migrate
+        run: bun run build
       - name: test ✅
-        run: pnpm test
-      - name: seed ✅
-        run: pnpm pls seed
-      - name: routes ✅
-        run: pnpm pls routes
-      - name: doctor ✅
-        run: pnpm pls info
-      - name: 200 ok ✅
-        shell: bash
-        run: |
-          pnpm dev &
-          sleep 5
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            response=$(curl.exe -s http://localhost:3000/health)
-          else
-            response=$(curl -s http://localhost:3000/health)
-          fi
-          if echo "$response" | grep -q '{"status":"ok"}'; then
-            echo "Server started and healthy"
-            echo "Response: $response"
-          else
-            echo "Server check failed"
-            echo "Unexpected response: $response"
-            exit 1
-          fi
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            taskkill //F //PID $(tasklist //FI "IMAGENAME eq node.exe" //FO CSV //NH | findstr /r /c:".*\.exe" | cut -d',' -f2 | tr -d '"') 2>NUL
-          else
-            kill $!
-          fi
-      # TODO write mailer, write command, run command, assert shell output
-      # TODO write scheduler, write command, run command, assert shell output, periodic counter
-      # TODO write job, write command, run command, assert shell output
-      # TODO pnpm dev to start server, wait 5 seconds, curl localhost:3000/health, assert status 200
+        run: bun test
