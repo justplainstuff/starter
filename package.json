@@ -1,7 +1,4 @@
 {
-  "name": "my-app",
-  "version": "1.0.0",
-  "private": true,
   "type": "module",
   "scripts": {
     "dev": "concurrently \"bun run --hot app/app.tsx\" \"tailwindcss -i ./app/styles.css -o ./static/styles.css --watch \"",
@@ -9,9 +6,10 @@
     "test": "bun test"
   },
   "dependencies": {
+    "@hono/oauth-providers": "^0.6.2",
     "consola": "^3.2.3",
     "hono": "^4.6.3",
-    "plainstack": "^0.0.48"
+    "plainstack": "^0.0.53"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
