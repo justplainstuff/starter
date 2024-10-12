@@ -11,7 +11,7 @@
   "dependencies": {
     "consola": "^3.2.3",
     "hono": "^4.6.3",
-    "plainstack": "^0.0.48"
+    "plainstack": "^0.0.50"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
