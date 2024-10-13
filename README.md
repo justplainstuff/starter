@@ -2,6 +2,8 @@
 
 This is a [plainstack](https://github.com/justplainstuff/plainstack) starter app. Plainstack is a single-file full-stack web framework built on top of [Hono](https://github.com/honojs/hono).
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/DN1vgp?referralCode=aU-ol3)
+
 This starter sets you app with the following features, all in a single file:
 
 ## Features
@@ -25,7 +27,3 @@ GOOGLE_CLIENT_SECRET=client_secret
 ```
 
 4. Run the app locally: `bun dev`
-
-## Deploy
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/DN1vgp?referralCode=aU-ol3)
