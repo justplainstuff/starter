@@ -1,4 +1,4 @@
-# Plainstack starter
+# Plainstack Starter
 
 This is a [plainstack](https://github.com/justplainstuff/plainstack) starter app. Plainstack is a single-file full-stack web framework built on top of [Hono](https://github.com/honojs/hono).
 
