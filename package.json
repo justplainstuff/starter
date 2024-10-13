@@ -6,10 +6,13 @@
     "test": "bun test"
   },
   "dependencies": {
+    "@conform-to/zod": "^1.2.2",
+    "@hono/conform-validator": "^1.0.0",
     "@hono/oauth-providers": "^0.6.2",
     "consola": "^3.2.3",
     "hono": "^4.6.3",
-    "plainstack": "^0.0.53"
+    "plainstack": "^0.0.53",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
