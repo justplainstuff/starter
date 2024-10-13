@@ -1,5 +1,29 @@
-# Plainstack Starter App
+# Plainstack Starter
 
-TODO
+This is a [Plainstack](https://github.com/justplainstuff/plainstack) starter app template. Plainstack is a single-file fullstack web framework built on top of [Hono](https://github.com/honojs/hono).
 
-![screenshot](./static/screen.png)
+## Features
+
+- Tailwind & DaisyUI
+- Google OAuth
+- Sessions
+- Form Validation
+- Database Migrations & Type-safe SQL Queries
+- Type-safe Environment Variables
+
+## Getting Started
+
+1. Clone the repository: `git clone git@github.com:justplainstuff/starter.git`
+2. Install dependencies: `bun install`
+3. Create a `.env` file in the root of the project with the following content:
+
+```env
+GOOGLE_CLIENT_ID=client_id
+GOOGLE_CLIENT_SECRET=client_secret
+```
+
+4. Run the app locally: `bun dev`
+
+## Deploy
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/DN1vgp?referralCode=aU-ol3)

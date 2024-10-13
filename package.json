@@ -2,8 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"bun run --hot app/app.tsx\" \"tailwindcss -i ./app/styles.css -o ./static/styles.css --watch \"",
-    "build": "GOOGLE_CLIENT_ID=build GOOGLE_CLIENT_SECRET=build PS_MIGRATE=1 bun run app/app.tsx && tsc --noEmit && tailwindcss -i ./app/styles.css -o ./static/styles.css --minify",
-    "test": "bun test"
+    "build": "GOOGLE_CLIENT_ID=build GOOGLE_CLIENT_SECRET=build PS_MIGRATE=1 bun run app/app.tsx && tsc --noEmit && tailwindcss -i ./app/styles.css -o ./static/styles.css --minify"
   },
   "dependencies": {
     "@conform-to/zod": "^1.2.2",

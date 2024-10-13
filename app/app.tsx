@@ -275,8 +275,8 @@ app.post(
   },
 );
 
-app.get("/signout", async (c) => {
-  c.get("session").deleteSession();
+app.get("/signout", auth, async (c) => {
+  c.get("session")?.deleteSession();
   return c.redirect("/");
 });
 
